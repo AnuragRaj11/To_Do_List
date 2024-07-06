@@ -30,7 +30,7 @@ function App() {
     setTodos(t[0].todo)
     let newTodos = todos.filter(item => {
       return item.id !== id
-    })
+    });
     setTodo("newTodos")
     saveToLS()
   }
