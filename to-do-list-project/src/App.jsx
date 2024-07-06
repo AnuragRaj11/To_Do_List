@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [Todo, setTodo] = useState("")
-  const [Todos, setTodos] = useState([])
+  const [todo, setTodo] = useState("")
+  const [todos, setTodos] = useState([])
   const [showfinished, setfinished] = useState(true)
 
   useEffect(() => {
@@ -21,6 +21,16 @@ function App() {
     setfinished(!showfinished)
   }
 
+
+  const handledAdd = () => {
+    setTodos([...Todos, { id: uuidv4(), todo, iscompleted: false }])
+    setTodo("")
+    saveToLS()
+  }
+  const handleChange = (e) => {
+    setTodo(e.taregt.value)
+  }
+
   return (
     <>
       < Navbar />
@@ -28,7 +38,7 @@ function App() {
         <div className='addTodo'>
           <h2 className='text-lg font-bold'>Add a Todo</h2>
           <div className='flex'>
-            <input onChange= type="text" />
+            <input onChange={handleChange} value={todo} type="text" className='w-full rounded-full px-5 py-1' />
           </div>
         </div>
       </div>
