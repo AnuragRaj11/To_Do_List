@@ -13,15 +13,16 @@ function App() {
     let todoString = localStorage.getItem("todos")
     if (todoString) {
       let todos = JSON.parse(localStorage.getItem("todos"))
+      setTodos(todos)
     }
   }, [])
 
   const saveToLS = (params) => {
-    localStorage.setItem("todos", JSON.stringify(params))
+    localStorage.setItem("todos", JSON.stringify(todos))
   }
 
   const tooglefinished = (e) => {
-    setfinished(!showfinished)
+    setshowfinished(!showfinished)
   }
 
   const handleEdit = (e, id) => {
