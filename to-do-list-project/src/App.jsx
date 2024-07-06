@@ -7,7 +7,7 @@ import { AiFillDelete } from "react-icons/ai";
 function App() {
   const [todo, setTodo] = useState("")
   const [todos, setTodos] = useState([])
-  const [showfinished, setshowfinished] = useState(true)
+  const [showFinished, setshowFinished] = useState(true)
 
   useEffect(() => {
     let todoString = localStorage.getItem("todos")
@@ -21,8 +21,8 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos))
   }
 
-  const tooglefinished = (e) => {
-    setshowfinished(!showfinished)
+  const toogleFinished = (e) => {
+    setshowFinished(!showFinished)
   }
 
   const handleEdit = (e, id) => {
@@ -44,7 +44,7 @@ function App() {
   }
 
   const handledAdd = () => {
-    setTodos([...Todos, { id: uuidv4(), todo, iscompleted: false }])
+    setTodos([...todos, { id: uuidv4(), todo, iscompleted: false }])
     setTodo("")
     saveToLS()
   }
@@ -76,7 +76,7 @@ function App() {
             <button onClick={handledAdd} disabled={todo.length <= 3} className='bg-violet-600 mx-4 rounded-ful hover:bg-red-400 disabled:bg-violet-500 p-4 py-2 text-sm font-bold text-white'>Save</button>
           </div>
         </div>
-        <input className='my-4' id='show' onChange={tooglefinished} type="checkbox" checked={showfinished} />
+        <input className='my-4' id='show' onChange={toogleFinished} type="checkbox" checked={showFinished} />
         <label className='mx-2' htmlFor="show">Show Finished</label>
         <div className='h-[1px] bg-black opacity-15 w-[90%] mx-auto my-2'></div>
         <h2 className='text-2xl font-bold'>Your Todos</h2>
@@ -85,14 +85,14 @@ function App() {
           {todos.map(item => {
 
 
-            return (showfinished || !item.iscompleted) && <div key={item.id} className={"todo flex my-3 justify-between"}>
+            return (showFinished || !item.iscompleted) && <div key={item.id} className={"todo flex my-3 justify-between"}>
               <div className='flex gap-4'>
                 <input name={item.id} onChange={handleCheckbox} type="checkbox" checked={item.iscompleted} id="" />
                 <div className={item.iscompleted ? "line-through" : ""}></div>
               </div>
               <div className='buttons flx h-full'>
-                <button onChange={(e) => handleEdit(e, item.id)} className='bg-violet-900 hover:bg-violet-950 p-2 py-1 text=sm font-bold text-white rounded-md mx-1'><FaEdit /> </button>
-                <button onClick={(e) => { handleDelete(e, item.id) }} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1'><AiFillDelete /></button>
+                <button onChange={(e) => handleEdit(e, item.id)} className='bg-violet-300 hover:bg-violet-4000 p-2 py-1 text=sm font-bold text-white rounded-md mx-1'><FaEdit /> </button>
+                <button onClick={(e) => { handleDelete(e, item.id) }} className='bg-violet-300 hover:bg-violet-400 p-2 py-1 text-sm font-bold text-white rounded-md mx-1'><AiFillDelete /></button>
               </div>   </div>
           })}
         </div>
