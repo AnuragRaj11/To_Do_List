@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import navbar from './components/navbar'
+import Navbar from "./components/Navbar";
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-     < navbar/>
-      <div className=''></div>
+     < Navbar/>
+      <div className='container mx-auto my-4  '></div>
     </>
   )
 }
