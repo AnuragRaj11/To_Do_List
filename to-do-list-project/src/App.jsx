@@ -38,7 +38,7 @@ function App() {
   const handleDelte = (e, id) => {
     let newTodos = todos.filter(item => {
       return item.id !== id
-    })
+    });
     setTodo("newTodos")
     saveToLS()
   }
