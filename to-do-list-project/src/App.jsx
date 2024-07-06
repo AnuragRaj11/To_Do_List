@@ -35,7 +35,7 @@ function App() {
     saveToLS()
   }
 
-  const handleDelte = (e, id) => {
+  const handleDelete = (e, id) => {
     let newTodos = todos.filter(item => {
       return item.id !== id
     });
@@ -73,7 +73,7 @@ function App() {
           <div className='flex'>
 
             <input onChange={handleChange} value={todo} type="text" className='w-full rounded-full px-4 py-1' />
-            <button onClick={handleAdd} disabled={todo.length <= 3} className='bg-violet-600 mx-4 rounded-ful hover:bg-red-400 disabled:bg-violet-500 p-4 py-2 text-sm font-bold text-white'>Save</button>
+            <button onClick={handledAdd} disabled={todo.length <= 3} className='bg-violet-600 mx-4 rounded-ful hover:bg-red-400 disabled:bg-violet-500 p-4 py-2 text-sm font-bold text-white'>Save</button>
           </div>
         </div>
         <input className='my-4' id='show' onChange={tooglefinished} type="checkbox" checked={showfinished} />
@@ -91,7 +91,7 @@ function App() {
                 <div className={item.iscompleted ? "line-through" : ""}></div>
               </div>
               <div className='buttons flx h-full'>
-                <button onChange={(e) => handledEdit(e, item.id)} className='bg-violet-900 hover:bg-violet-950 p-2 py-1 text=sm font-bold text-white rounded-md mx-1'><FaEdit /> </button>
+                <button onChange={(e) => handleEdit(e, item.id)} className='bg-violet-900 hover:bg-violet-950 p-2 py-1 text=sm font-bold text-white rounded-md mx-1'><FaEdit /> </button>
                 <button onClick={(e) => { handleDelete(e, item.id) }} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1'><AiFillDelete /></button>
               </div>   </div>
           })}
